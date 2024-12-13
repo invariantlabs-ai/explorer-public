@@ -6,7 +6,7 @@ truncation_limit: 10000
 server_truncation_limit: 100000
 
 # the name of this deployment instance (e.g. prod, local, preview, <custom name>)
-instance_name: local
+instance_name: local-0.1
 
 ## authentication setup (Keycloak)
 
