@@ -22,7 +22,7 @@ services:
       - "traefik.http.routers.traefik-http.entrypoints=web"
 
   app-api:
-    image: ghcr.io/invariantlabs-ai/explorer-oss/app-api:latest
+    image: ghcr.io/invariantlabs-ai/explorer-oss/app-api:${VERSION}
     platform: linux/amd64
     depends_on:
       - database
@@ -53,7 +53,7 @@ services:
       - "traefik.docker.network=invariant_web"
 
   app-ui:
-    image: ghcr.io/invariantlabs-ai/explorer-oss/app-ui:latest
+    image: ghcr.io/invariantlabs-ai/explorer-oss/app-ui:${VERSION}
     platform: linux/amd64
     networks:
       - web
