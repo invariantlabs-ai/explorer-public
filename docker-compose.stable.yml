@@ -12,7 +12,7 @@ services:
       - --entrypoints.web.address=0.0.0.0:80
       - --log.level=INFO
     networks:
-      - web
+      - invariant-explorer-web
     ports:
       - '${PORT_HTTP}:80'
     volumes:
