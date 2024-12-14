@@ -50,7 +50,7 @@ services:
       - "traefik.http.routers.$APP_NAME-api.rule=(HeadersRegexp(`Host`, `localhost(:[0-9]+)?`) && PathPrefix(`/api/`)) || (HeadersRegexp(`Host`, `127.0.0.1(:[0-9]+)?`) && PathPrefix(`/api/`))"
       - "traefik.http.routers.$APP_NAME-api.entrypoints=web"
       - "traefik.http.services.$APP_NAME-api.loadbalancer.server.port=8000"
-      - "traefik.docker.network=invariant_web"
+      - "traefik.docker.network=invariant-explorer-web"
 
   app-ui:
     image: ghcr.io/invariantlabs-ai/explorer-oss/app-ui:${VERSION}
@@ -67,7 +67,7 @@ services:
       - "traefik.http.routers.$APP_NAME-ui.rule=Host(`localhost`)||Host(`127.0.0.1`)"
       - "traefik.http.routers.$APP_NAME-ui.entrypoints=web"
       - "traefik.http.services.$APP_NAME-ui.loadbalancer.server.port=8000"
-      - "traefik.docker.network=invariant_web"
+      - "traefik.docker.network=invariant-explorer-web"
 
   database:
     image: postgres:16
