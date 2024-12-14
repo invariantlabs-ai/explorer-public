@@ -40,7 +40,7 @@ services:
       - APP_NAME=${APP_NAME}
       - CONFIG_FILE=/config/explorer.config.yml
     networks:
-      - web
+      - invariant-explorer-web
       - internal
     volumes:
       - $CONFIG_FILE_NAME:/config/explorer.config.yml
@@ -56,7 +56,7 @@ services:
     image: ghcr.io/invariantlabs-ai/explorer-oss/app-ui:${VERSION}
     platform: linux/amd64
     networks:
-      - web
+      - invariant-explorer-web
     volumes:
       - $CONFIG_FILE_NAME:/config/explorer.config.yml
     environment:
@@ -81,5 +81,6 @@ services:
         target: /var/lib/postgresql/data
 
 networks:
-  web:
+  invariant-explorer-web:
+    external: true
   internal:
