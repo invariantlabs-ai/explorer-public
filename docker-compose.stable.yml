@@ -64,7 +64,7 @@ services:
       - VITE_CONFIG_FILE=/config/explorer.config.yml
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.$APP_NAME-ui.rule=Host(`localhost`)||Host(`127.0.0.1`)"
+      - "traefik.http.routers.$APP_NAME-ui.rule=HeadersRegexp(`Host`, `localhost(:[0-9]+)?`)||HeadersRegexp(`Host`, `127.0.0.1(:[0-9]+)?`)"
       - "traefik.http.routers.$APP_NAME-ui.entrypoints=web"
       - "traefik.http.services.$APP_NAME-ui.loadbalancer.server.port=8000"
       - "traefik.docker.network=invariant-explorer-web"
